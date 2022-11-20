@@ -48,7 +48,7 @@ class MockSMTPServer(smtpd.SMTPServer):
 
         in_header = True
         for line in data.splitlines():
-            if in_header and not ':' in line:
+            if in_header and not b':' in line:
                 mail.write('\n')
             in_header = False
             mail.write('%s\n' % line)
